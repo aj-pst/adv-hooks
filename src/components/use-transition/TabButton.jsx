@@ -1,12 +1,12 @@
 import React,{useTransition} from "react";
 const TabButton = ({ title, variant, onClick }) => {
-//   const [isPending, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
-//   const handleClick = () => {
-//     startTransition(() => {
-//       onClick?.();
-//     });
-//   };
+  const handleClick = () => {
+    startTransition(() => {
+      onClick?.();
+    });
+  };
 
   const baseClasses =
     'rounded-lg px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70';
@@ -18,12 +18,11 @@ const TabButton = ({ title, variant, onClick }) => {
 
   return (
     <button
-      onClick={onClick}
-    //   disabled={isPending}
+      onClick={handleClick}
+      disabled={isPending}
       className={`${baseClasses} ${variantClasses}`}
     >
-        {title}
-      {/* {isPending ? 'Loading...' : title} */}
+      {isPending ? 'Loading...' : title}
     </button>
   );
 };

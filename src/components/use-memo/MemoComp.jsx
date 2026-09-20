@@ -5,11 +5,10 @@ const MemoComp = () => {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
-  const selectedItem = useMemo(()=>(
-    items.find(
+  const selectedItem =  useMemo(()=>(items.find(
     (item) => item.isSelected
-  )
-),[items])
+  )),
+[])
 
   return (
     <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

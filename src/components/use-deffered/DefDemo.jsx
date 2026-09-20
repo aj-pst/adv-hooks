@@ -1,9 +1,10 @@
 // Demo.jsx
-import { useState } from 'react';
+import { useDeferredValue, useState } from 'react';
 import SlowList from './DefSlowList';
 
 const DefDemo = () => {
   const [query, setQuery] = useState('');
+    const defferedValue=useDeferredValue(query)
 
   return (
     <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -20,7 +21,7 @@ const DefDemo = () => {
         />
       </label>
 
-      <SlowList text={query} />
+      <SlowList text={defferedValue} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { shuffle } from '@/utils';
 import Search from './Search';
 
@@ -7,10 +7,10 @@ const allUsers = ['john', 'alex', 'george', 'simon', 'james'];
 const CallbackComp = () => {
   const [users, setUsers] = useState(allUsers);
 
-  const handleSearch = (text) => {
+  const handleSearch = useCallback((text) => {
     const filteredUsers = allUsers.filter((user) => user.includes(text));
     setUsers(filteredUsers);
-  };
+  },[])
 
   return (
     <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
